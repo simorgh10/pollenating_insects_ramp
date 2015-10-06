@@ -9,7 +9,7 @@ class Classifier(BaseEstimator):
 	def fit(self, X, y):
 	    X_vectorized = X.reshape((X.shape[0], X.shape[1] * X.shape[2] * X.shape[3]))    
 	    self.clf = RandomForestClassifier(
-		n_estimators=9, max_features=2, max_leaf_nodes=6)
+		n_estimators=10, max_features=2, max_leaf_nodes=6)
 	    self.clf.fit(X_vectorized, y)
 
 	def predict(self, X):
