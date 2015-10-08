@@ -72,6 +72,13 @@ class Classifier(BaseEstimator):
         X_new = X_new.transpose((0, 3, 1, 2))
         return X_new
     
+    def preprocess_test(self, X):
+        X = (X / 255.)
+        X = X.astype(np.float32)
+        X = X[:, 10:54, 10:54, :]
+        X = X.transpose((0, 3, 1, 2))
+        return X
+    
     def preprocess_y(self, y):
         y_new = np.zeros((y.shape[0] * 3))
         for i in xrange(y.shape[0]):
@@ -85,7 +92,7 @@ class Classifier(BaseEstimator):
         return self
 
     def predict(self, X):
-        X = self.preprocess(X)
+        X = self.preprocess_test(X)
         return self.net.predict(X)
 
     def predict_proba(self, X):
@@ -109,7 +116,7 @@ def build_model(hyper_parameters):
         input_shape=(None, 3, 44, 44),
         use_label_encoder=True,
         verbose=1,
-        #objective=objective_with_L2,
+        objective=objective_with_L2,
         **hyper_parameters
         )
     return net
