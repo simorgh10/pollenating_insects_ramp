@@ -137,7 +137,7 @@ hyper_parameters = dict(
     update_learning_rate=0.01,
     # update_momentum=0.9,
     update=updates.adagrad,
-    max_epochs=100,
+    max_epochs=300,
     on_epoch_finished=[EarlyStopping(patience=20, criterion='valid_accuracy', criterion_smaller_is_better=False)],
     batch_iterator_train=FlipBatchIterator(batch_size=100)
 )
