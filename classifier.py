@@ -96,7 +96,7 @@ class Classifier(BaseEstimator):
         return self.net.predict(X)
 
     def predict_proba(self, X):
-        X = self.preprocess(X)
+        X = self.preprocess_test(X)
         return self.net.predict_proba(X)
 
 def build_model(hyper_parameters):
