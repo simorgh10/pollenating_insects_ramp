@@ -19,3 +19,6 @@ class Classifier(BaseEstimator):
 	def predict_proba(self, X):
 	    X_vectorized = X.reshape((X.shape[0], X.shape[1] * X.shape[2] * X.shape[3]))    
 	    return self.clf.predict_proba(X_vectorized)
+
+# http://onevm-189.lal.in2p3.fr:22008/notebooks/18/recommandations.ipynb
+# http://onevm-189.lal.in2p3.fr:22008/tree/18
