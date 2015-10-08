@@ -116,7 +116,7 @@ def build_model(hyper_parameters):
         input_shape=(None, 3, 44, 44),
         use_label_encoder=True,
         verbose=1,
-        objective=objective_with_L2,
+        #objective=objective_with_L2,
         **hyper_parameters
         )
     return net
